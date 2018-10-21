@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">wei app</string>
+    <string name="memory">备忘录</string>
+    <string name="location">地图定位</string>
+</resources>
