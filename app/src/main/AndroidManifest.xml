@@ -18,12 +18,19 @@
         </activity>
         <activity
             android:name=".MemoryActivity"
-            android:parentActivityName=".MainActivity"
-            >
-            <!--支持api15及以下级别-->
+            android:parentActivityName=".MainActivity">
+
+            <!-- 支持api15及以下级别 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".NewMemoryActivity"
+            android:parentActivityName=".MemoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MemoryActivity"/>
         </activity>
     </application>
 

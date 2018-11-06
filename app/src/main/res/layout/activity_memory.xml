@@ -25,14 +25,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="#039be5"
+            android:text="@string/addMemory" />
+
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableBottom="#d5d5d5"
+            android:gravity="center"
+            android:layout_gravity="right"
             android:text="TextView" />
+
     </LinearLayout>
 
 </RelativeLayout>
