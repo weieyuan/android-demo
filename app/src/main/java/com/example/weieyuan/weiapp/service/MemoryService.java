@@ -19,4 +19,9 @@ public class MemoryService {
     }
 
 
+    public void addNewMemory(MemoryItemModel model) {
+        if (this.mock) {
+            MemoryMock.addNewMemory(model);
+        }
+    }
 }
