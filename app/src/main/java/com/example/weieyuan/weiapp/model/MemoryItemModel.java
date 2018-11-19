@@ -1,6 +1,14 @@
 package com.example.weieyuan.weiapp.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "tbl_memory")
 public class MemoryItemModel {
+
+    @PrimaryKey(autoGenerate=true)
+    private int id;
+
     private String date;
 
     private String content;
