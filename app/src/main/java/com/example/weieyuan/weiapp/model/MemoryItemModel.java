@@ -1,7 +1,8 @@
 package com.example.weieyuan.weiapp.model;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 
 @Entity(tableName = "tbl_memory")
 public class MemoryItemModel {
@@ -16,6 +17,14 @@ public class MemoryItemModel {
     public MemoryItemModel(String date, String content) {
         this.date = date;
         this.content = content;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDate() {

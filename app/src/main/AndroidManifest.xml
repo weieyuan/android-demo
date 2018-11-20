@@ -3,6 +3,7 @@
     package="com.example.weieyuan.weiapp">
 
     <application
+        android:name=".database.AppContext"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
