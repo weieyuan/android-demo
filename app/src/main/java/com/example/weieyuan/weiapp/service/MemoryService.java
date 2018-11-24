@@ -6,6 +6,10 @@ import com.example.weieyuan.weiapp.model.MemoryItemModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MemoryService {
 
@@ -16,16 +20,41 @@ public class MemoryService {
         if (this.mock) {
             return MemoryMock.getMockData();
         }
-        return new ArrayList<>();
+        else {
+            List<MemoryItemModel> res = new ArrayList<>();
+            Callable<List<MemoryItemModel>> callable = new Callable<List<MemoryItemModel>>(){
+                @Override
+                public List<MemoryItemModel> call() {
+                    return AppContext.myDataBase.memoryDao().findAll();
+                }
+            };
+            Future<List<MemoryItemModel>> future = Executors.newSingleThreadExecutor().submit(callable);
+            try {
+                res = future.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            finally {
+                return res;
+            }
+        }
     }
 
 
-    public void addNewMemory(MemoryItemModel model) {
+    public void addNewMemory(final MemoryItemModel model) {
         if (this.mock) {
             MemoryMock.addNewMemory(model);
         }
         else {
-            AppContext.myDataBase.memoryDao().insert(model);
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    AppContext.myDataBase.memoryDao().insert(model);
+                }
+            };
+            Executors.newSingleThreadExecutor().submit(runnable);
         }
     }
 }
