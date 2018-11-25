@@ -24,6 +24,8 @@ public class MemoryActivity extends AppCompatActivity {
 
     private List<MemoryItemModel> data = new ArrayList<>();
 
+    private BaseAdapter adapter;
+
     private MemoryService service = new MemoryService();
 
     @Override
@@ -40,10 +42,28 @@ public class MemoryActivity extends AppCompatActivity {
 
     // Activity的生命周期
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.data = this.service.getData();
+        // TODO 这个地方的代码待优化，不能每次都创建一个新的adapter
+        // 这里应该是向this.data中添加新的数据，然后调用notifyDataSetChanged来通知listView刷新页面
+        this.adapter = new CustomerAdapter(this, this.data);
+        this.listView.setAdapter(this.adapter);
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
+
+    }
+
     private void initListView() {
         this.data.addAll(this.service.getData());
-        BaseAdapter adapter = new CustomerAdapter(this, this.data);
-        this.listView.setAdapter(adapter);
+        this.adapter = new CustomerAdapter(this, this.data);
+        this.listView.setAdapter(this.adapter);
     }
 
     private void initCreateBtn() {
