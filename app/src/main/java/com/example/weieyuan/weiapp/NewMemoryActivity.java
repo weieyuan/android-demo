@@ -44,6 +44,8 @@ public class NewMemoryActivity extends AppCompatActivity {
                 String strDate = String.valueOf(year) + '-' + String.valueOf(month) + '-' + String.valueOf(day);
                 MemoryItemModel model = new MemoryItemModel(strDate, strContent);
                 NewMemoryActivity.this.service.addNewMemory(model);
+                // 销毁当前的activity
+                finish();
             }
         });
     }

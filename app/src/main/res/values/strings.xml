@@ -4,4 +4,6 @@
     <string name="location">地图定位</string>
     <string name="memoryTitle">备忘录</string>
     <string name="addMemory">新建</string>
+    <string name="addMemoryTitle">创建新的备忘录</string>
+    <string name="addMemoryOk">完成</string>
 </resources>

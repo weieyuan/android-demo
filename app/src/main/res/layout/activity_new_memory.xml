@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NewMemoryActivity">
 
-
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
-        android:text="创建新的备忘录"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:background="@null"
+        android:text="@string/addMemoryTitle" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/edit_text"
-        android:ems="10"
-        android:gravity="left"
-        android:inputType="textMultiLine"
-        android:minLines="5"
+        android:layout_below="@id/textView3"
         android:layout_marginBottom="60dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView3" />
+        android:background="@null"
+        android:gravity="top"
+        android:maxLines="10"
+        android:minLines="8"
+        android:scrollbars="vertical" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="完成"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_alignParentBottom="true"
+        android:background="#039be5"
+        android:text="@string/addMemoryOk" />
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

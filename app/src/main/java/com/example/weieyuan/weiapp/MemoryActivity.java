@@ -38,6 +38,8 @@ public class MemoryActivity extends AppCompatActivity {
         initCreateBtn();
     }
 
+    // Activity的生命周期
+
     private void initListView() {
         this.data.addAll(this.service.getData());
         BaseAdapter adapter = new CustomerAdapter(this, this.data);
